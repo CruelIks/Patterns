@@ -17,10 +17,13 @@ public class DuckSimulator {
         Quackable mallardDuck = countFactory.createMallardDuck();
         Quackable rubberDuck = countFactory.createRubberDuck();
 
-        Flock ducksFlock = new Flock();
-        ducksFlock.add(mallardDuck);
-        ducksFlock.add(rubberDuck);
-        ducksFlock.quack();
+        Flock flock = new Flock();
+        flock.addQuack(mallardDuck);
+        flock.addQuack(rubberDuck);
+
+        Quackologist quackologist = new Quackologist();
+        flock.registerObserver(quackologist);
+        flock.quack();
 
         System.out.println(QuackCounter.getQuackCount() + " quack's");
     }

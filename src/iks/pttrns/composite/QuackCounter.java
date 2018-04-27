@@ -4,7 +4,6 @@ package iks.pttrns.composite;
 public class QuackCounter implements Quackable {
     Quackable duck;
     static int quackCount;
-    Observable observable;
 
     public QuackCounter(Quackable duck) {
         this.duck = duck;
@@ -22,11 +21,11 @@ public class QuackCounter implements Quackable {
 
     @Override
     public void registerObserver(Observer observer) {
-        observable.registerObserver(observer);
+        duck.registerObserver(observer);
     }
 
     @Override
     public void notifyObservers() {
-        observable.notifyObservers();
+        duck.notifyObservers();
     }
 }

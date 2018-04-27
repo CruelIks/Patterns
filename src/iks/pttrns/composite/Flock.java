@@ -4,32 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Flock implements Quackable {
-    Observable observable;
 
-    public Flock(Observable observable) {
-        this.observable = observable;
-    }
-
-    List<Quackable> flock = new ArrayList<>();
+    private List<Quackable> quackFlock = new ArrayList<>();
 
     @Override
     public void quack() {
-        for (Quackable quackable : flock) {
+        for (Quackable quackable : quackFlock) {
             quackable.quack();
         }
     }
 
-    public void add(Quackable quackable) {
-        flock.add(quackable);
-    }
-
     @Override
     public void registerObserver(Observer observer) {
-        observable.registerObserver(observer);
+        for (Quackable quackable : quackFlock) {
+            quackable.registerObserver(observer);
+        }
     }
 
     @Override
     public void notifyObservers() {
-        observable.notifyObservers();
+        for (Quackable quackable : quackFlock) {
+            quackable.notifyObservers();
+        }
+    }
+
+    public void addQuack(Quackable quack) {
+        this.quackFlock.add(quack);
     }
 }

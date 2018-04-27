@@ -2,6 +2,7 @@ package iks.pttrns.composite.factory;
 
 import iks.pttrns.composite.DuckCall;
 import iks.pttrns.composite.MallardDuck;
+import iks.pttrns.composite.Observable;
 import iks.pttrns.composite.Quackable;
 import iks.pttrns.composite.RedheadDuck;
 import iks.pttrns.composite.RubberDuck;

@@ -3,8 +3,8 @@ package iks.pttrns.composite;
 public class MallardDuck implements Quackable {
     Observable observable;
 
-    public MallardDuck(Observable observable) {
-        this.observable = observable;
+    public MallardDuck() {
+        observable = new Observable(this);
     }
 
     @Override
